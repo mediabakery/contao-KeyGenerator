@@ -60,9 +60,8 @@ class KeyGenerator extends \System{
 	 */
 	private function getKey()
 	{
-		// set length delta
-	    $intMinLength = strlen(\Input::getInstance()->post('minlength')) ? \Input::getInstance()->post('minlength') : 0;
-		$intMaxLength = strlen(\Input::getInstance()->post('maxlength')) ? \Input::getInstance()->post('maxlength') : 32;
+		// set length 
+		$intLength = strlen(\Input::getInstance()->post('maxlength')) ? \Input::getInstance()->post('maxlength') : 32;
 	    
 	    // HOOK: search for extern genenerator
 		if (isset($GLOBALS['TL_HOOKS']['generateKey']) && is_array($GLOBALS['TL_HOOKS']['generateKey']))
@@ -70,11 +69,11 @@ class KeyGenerator extends \System{
 			foreach ($GLOBALS['TL_HOOKS']['generateKey'] as $callback)
 			{
 				$this->import($callback[0]);
-				$strKey = $this->$callback[0]->$callback[1](\Input::getInstance()->post('name'), $intMinLength, $intMaxLength);
+				$strKey = $this->$callback[0]->$callback[1](\Input::getInstance()->post('name'), $intLength);
 				if ($strKey) return $strKey;
 			}
 		}
 		// generate key with default generator
-	    return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, rand($intMinLength, $intMaxLength));
+	    return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $intLength);
 	}
 }
