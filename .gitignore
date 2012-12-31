@@ -1,0 +1,29 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs 
+.buildpath
+.project
+.settings/
+.build/
+.idea/
+nbproject/
+
+# Contao
+/.htaccess
+/*.xml
+contao/update.phar.php
+files/*
+assets/css/*
+assets/images/*
+assets/js/*
+share/*.xml
+system/cache/*
+system/config/dcaconfig.php
+system/config/initconfig.php
+system/config/langconfig.php
+system/config/localconfig.php
+system/cron/cron.txt
+system/logs/*
+system/tmp/*
