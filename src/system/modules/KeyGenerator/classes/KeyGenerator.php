@@ -74,6 +74,13 @@ class KeyGenerator extends \System{
 			}
 		}
 		// generate key with default generator
-	    return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $intLength);
+		$strKey = '';
+		for ($i=0; $i<$intLength; $i++)
+		{
+			$strKey .= substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 1);
+		}
+
+		return str_shuffle($strKey);
 	}
+
 }
