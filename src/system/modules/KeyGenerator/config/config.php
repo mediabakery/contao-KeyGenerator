@@ -12,4 +12,3 @@
  */
 
 $GLOBALS['TL_HOOKS']['executePreActions'][] = array('\KeyGenerator\KeyGenerator', 'generateKey');
-$GLOBALS['TL_HOOKS']['generateKey'][] = array('\KeyGenerator\KeyGenerator', 'test');
