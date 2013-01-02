@@ -11,4 +11,5 @@
  * @copyright Sebastian Tilch 2012
  */
 
-$GLOBALS['TL_HOOKS']['executePreActions'][] = array('\KeyGenerator', 'generateKey');
+$GLOBALS['TL_HOOKS']['executePreActions'][] = array('\KeyGenerator\KeyGenerator', 'generateKey');
+$GLOBALS['TL_HOOKS']['generateKey'][] = array('\KeyGenerator\KeyGenerator', 'test');
