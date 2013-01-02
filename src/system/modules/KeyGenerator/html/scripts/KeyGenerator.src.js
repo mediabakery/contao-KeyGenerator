@@ -13,7 +13,7 @@ var KeyGenerator = new Class(
 				el.set('value',key);
 				el.highlight('#8AB858');
 			}
-		}).post({'action':'generateKey', 'name':el.name, 'minlength':el.get('minlength'), 'maxlength':el.get('maxlength'), 'REQUEST_TOKEN':REQUEST_TOKEN});
+		}).post({'action':'generateKey', 'name':el.name, 'maxlength':el.get('maxlength'), 'REQUEST_TOKEN':REQUEST_TOKEN});
 	}
 });
 

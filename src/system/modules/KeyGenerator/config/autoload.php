@@ -16,7 +16,7 @@
  */
 ClassLoader::addNamespaces(array
 (
-	'KeyGenerator',
+	'Mediabakery',
 ));
 
 
@@ -26,5 +26,6 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Classes
-	'KeyGenerator\KeyGenerator' => 'system/modules/KeyGenerator/classes/KeyGenerator.php',
+	'Mediabakery\KeyGenerator\KeyGenerator' => 'system/modules/KeyGenerator/classes/KeyGenerator.php',
+	'Mediabakery\KeyGenerator\KeyProvider' => 'system/modules/KeyGenerator/classes/KeyProvider.php',
 ));
