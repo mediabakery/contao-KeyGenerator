@@ -38,11 +38,9 @@ class KeyProvider extends \System{
 
 		// Default Key Generator
 		$strCharPool = str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789');
-		$intPoolLength = strlen($strCharPool);
-
+		$intPoolLength = strlen($strCharPool)-1;
 		// if the length is not set, we will generate a key with 40 chars
-		if (strlen($intLength)) $intLength = 40;
-
+		if (!strlen($intLength)) $intLength = 40;
 		$strKey = '';
 		for ($i = 0; $i < $intLength; $i++)
 		{
