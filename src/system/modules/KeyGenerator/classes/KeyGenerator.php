@@ -59,37 +59,4 @@ class KeyGenerator extends \Backend{
 		$GLOBALS['TL_MOOTOOLS']['KeyGenerator'] = '<script>var REQUEST_TOKEN="' . REQUEST_TOKEN . '"</script>';
 		return 	'<img src="system/modules/KeyGenerator/html/media/icon.gif" width="20" height="20" style="vertical-align:-6px;cursor:pointer" class="keygenerator" title="' . $GLOBALS['TL_LANG']['MSC']['keygenerator'] . '">';
 	}
-<<<<<<< HEAD
-=======
-
-	/**
-	 * This method generates the key and returns it
-	 * @return String generated key
-	 */
-	private function getKey()
-	{
-		// set length 
-		$intLength = strlen(\Input::getInstance()->post('maxlength')) ? \Input::getInstance()->post('maxlength') : 32;
-	    
-	    // HOOK: search for extern genenerator
-		if (isset($GLOBALS['TL_HOOKS']['generateKey']) && is_array($GLOBALS['TL_HOOKS']['generateKey']))
-		{
-			foreach ($GLOBALS['TL_HOOKS']['generateKey'] as $callback)
-			{
-				$this->import($callback[0]);
-				$strKey = $this->$callback[0]->$callback[1](\Input::getInstance()->post('name'), $intLength);
-				if ($strKey) return $strKey;
-			}
-		}
-		// generate key with default generator
-		$strKey = '';
-		for ($i=0; $i<$intLength; $i++)
-		{
-			$strKey .= substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 1);
-		}
-
-		return str_shuffle($strKey);
-	}
-
->>>>>>> 31d101c36cc750601a579f01ce61643f8802bc7b
 }
